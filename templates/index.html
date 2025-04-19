@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PennyPath</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PennyPath</h1>
+        
+        <!-- Form for user input -->
+        <form method="POST">
+            <label for="source">Source Airport:</label>
+            <select name="source" id="source">
+                {% for code, info in airports_info.items() %}
+                    <option value="{{ code }}">{{ code }} - {{ info.state }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="destination">Destination Airport:</label>
+            <select name="destination" id="destination">
+                {% for code, info in airports_info.items() %}
+                    <option value="{{ code }}">{{ code }} - {{ info.state }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="optimize">Optimize By:</label>
+            <select name="optimize" id="optimize">
+                <option value="fare">Fare</option>
+                <option value="duration">Duration</option>
+            </select>
+            
+            <label for="max_stops">Max Stops:</label>
+            <select name="max_stops" id="max_stops">
+                <option value="0">Direct</option>
+                <option value="1">1 Stop</option>
+                <option value="2">2 Stops</option>
+            </select>
+            
+            <button type="submit">Find Route</button>
+        </form>
+
+        <!-- Display results -->
+        {% if results %}
+            <h2>Direct Routes</h2>
+            <ul>
+                {% for route in results['direct'] %}
+                    <li>
+                        {{ route["route"]|join(' → ') }} | Fare: ₹{{ route["total_fare"] }} | Duration: {{ route["total_duration"] }} hrs
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <h2>Indirect Routes</h2>
+            <ul>
+                {% for route in results['indirect'] %}
+                    <li>
+                        {{ route["route"]|join(' → ') }} | Fare: ₹{{ route["total_fare"] }} | Duration: {{ route["total_duration"] }} hrs
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <!-- Display results dynamically -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

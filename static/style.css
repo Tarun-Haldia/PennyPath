@@ -1,0 +1,80 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1f1f1f;
+    color: #00ccff;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+select:hover, button:hover {
+    background-color: #292929;
+}
+
+button {
+    background-color: #00ccff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #00ccff;
+    margin-top: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
