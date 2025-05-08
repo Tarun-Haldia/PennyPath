@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PennyPath</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
 </head>
 <body>
     <div class="container">
@@ -40,6 +43,14 @@
             </select>
             
             <button type="submit">Find Route</button>
+
+            <div id="loading" class="loading-container">
+                <div class="flight"></div>
+            </div>
+        
+            <div id="spinner" class="spinner-container">
+                <div class="spinner"></div>
+            </div>
         </form>
 
         <!-- Display results -->
@@ -63,7 +74,19 @@
             </ul>
         {% endif %}
     </div>
+
+
+    <h2
+    style="
+      margin-left: 50px;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+    "
+  >
+
     <!-- Display results dynamically -->
 <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 /* General styles */
 body {
     margin: 0;
@@ -13,7 +14,7 @@ body {
 }
 
 .container {
-    background-color: #111;
+    background-color: #3f3e4049;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
@@ -22,11 +23,43 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
+
+@keyframes colorMove {
+    0% {
+        color: #00ccff; /* Initial bright color */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    10% {
+        color: #e6f7ff; /* Slightly dimmer */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    20% {
+        color: #b3e0ff; /* More dim */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    30% {
+        color: #99c2ff; /* Dim */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    40% {
+        color: #80b3ff; /* Even more dim */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    50% {
+        color: #66a3ff; /* Half dim */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+    100% {
+        color: #00ccff; /* Full bright color (back to initial blue) */
+        text-shadow: 0 0 15px #00ccff, 0 0 30px #00ccff, 0 0 45px #00ccff;
+    }
+}
+
 h1 {
     text-align: center;
-    color: #00ccff;
-    text-shadow: 0 0 10px #00ccff;
+    font-size: 50px;
     margin-bottom: 20px;
+    animation: colorMove 5s ease-in-out infinite; /* Smooth animation with gradual dimming and brightening */
 }
 
 label {
@@ -47,9 +80,15 @@ select, button {
     transition: background 0.3s ease;
 }
 
-select:hover, button:hover {
+select:hover{
     background-color: #292929;
+
 }
+button:hover {
+    box-shadow: 0 0 15px #00d0ff, 0 0 30px #00d0ff;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
 
 button {
     background-color: #00ccff;
@@ -58,6 +97,32 @@ button {
     cursor: pointer;
     margin-top: 20px;
 }
+
+.route-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.4s ease-out forwards;
+  }
+  @keyframes fadeSlide {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .loader {
+  border: 3px solid #222;
+  border-top: 3px solid #00d0ff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 
 h2 {
     color: #00ccff;

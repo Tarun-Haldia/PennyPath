@@ -40,15 +40,14 @@ def calculate_distance(src, dst):
     return None
 
 
-
-
+ 
 def calculate_fare(distance):
     if distance < 1000:
         return 1500
     elif 1000 <= distance < 2499:
-        return 3000
+        return 2500
     elif 2500 <= distance < 4000:
-        return 4500 + int((distance - 2000) / 400 * 150)  # more deterministic
+        return 3600 + int((distance - 2000) / 400 * 150)  # more deterministic
     return 0
 
 # Build graph
@@ -71,10 +70,12 @@ def calculate_compensated_fare(route):
         stop_duration += G[route[i-1]][route[i]]['duration'] + G[route[i]][route[i+1]]['duration']
         
     # Apply discounts based on stop duration
-    if stop_duration > 5:
-        total_fare -= 300  # ₹300 discount if stop is longer than 5 hrs
-    elif stop_duration > 3:
-        total_fare -= 500  # ₹500 discount if stop is longer than 3 hrs
+    if stop_duration >= 1:
+      total_fare -= 700
+    elif stop_duration > 2:
+      total_fare -= 900
+
+
     
     return total_fare
 
@@ -166,3 +167,5 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
