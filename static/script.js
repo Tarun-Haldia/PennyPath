@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const destination = document.getElementById("destination");
   const button = form.querySelector("button");
 
+  
   form.addEventListener("submit", function (e) {
       if (source.value === destination.value) {
           e.preventDefault();
