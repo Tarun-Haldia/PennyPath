@@ -4,7 +4,6 @@ PennyPath is a Flask-based web app that helps you find the best air routes betwe
 
 ---
 
-
 ## 🌟 Features
 
 - 🔍 Find flight routes between any two Indian airports
